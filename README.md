@@ -12,7 +12,7 @@ A Kotlin DSL Language for `Retrofit 2`
         }
 ```
 
-- Creating Retrofit
+- Creating `Retrofit` Service : 
 ```kotlin
     interface Service {
         @GET("/")
@@ -28,11 +28,14 @@ A Kotlin DSL Language for `Retrofit 2`
             converterFactories = arrayListOf(GsonConverterFactory.create(gson))
             callAdapterFactories = arrayListOf(RxJava2CallAdapterFactory.create())
     }
-    
-/*--------------------------------------------------------------------------------------
------------------------------------     OR        --------------------------------------
-----------------------------------------------------------------------------------------*/
-    val service: Service = retrofit {
+```
+
+OR
+
+You can create `Retrofit` service using existing `Retrofit` Instance :
+
+```kotlin
+	val service: Service = retrofit {
             baseUrl = url
             this.client = client
             converterFactories = arrayListOf(GsonConverterFactory.create(gson))
@@ -56,7 +59,7 @@ allprojects {
  
 ```gradle
 dependencies {
-	implementation 'com.github.amalhanaja:ReactiveConnectivity:1.0'
+	implementation 'com.github.amalhanaja:retrofit2-kotlin:1.0.0'
 }
 ```
 
